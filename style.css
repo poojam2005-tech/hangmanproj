@@ -1,0 +1,555 @@
+/* ==========================================
+   HANGMAN GAME - CSS Styling
+   ========================================== */
+
+/* Root Variables */
+:root {
+    --primary-color: #6C63FF;
+    --secondary-color: #00D4FF;
+    --success-color: #10B981;
+    --danger-color: #EF4444;
+    --warning-color: #F59E0B;
+    --text-dark: #1F2937;
+    --text-light: #6B7280;
+    --bg-light: #F9FAFB;
+    --bg-white: #FFFFFF;
+    --border-color: #E5E7EB;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================
+   GENERAL STYLES
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   HEADER SECTION
+   ========================================== */
+
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    animation: slideDown 0.6s ease-out;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* ==========================================
+   GAME CONTAINER
+   ========================================== */
+
+.game-container {
+    background: var(--bg-white);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: var(--shadow), 0 10px 30px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    animation: slideUp 0.6s ease-out;
+}
+
+/* ==========================================
+   SCORE SECTION
+   ========================================== */
+
+.score-section {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.score-item {
+    text-align: center;
+}
+
+.score-item label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.score-item span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* ==========================================
+   HANGMAN DRAWING SECTION
+   ========================================== */
+
+.hangman-section {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: var(--bg-light);
+    border-radius: 10px;
+}
+
+.hangman-section h3 {
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.hangman-drawing {
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: var(--text-dark);
+    letter-spacing: 2px;
+}
+
+/* ==========================================
+   WORD DISPLAY SECTION
+   ========================================== */
+
+.word-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.word-section h3 {
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.word-display {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 8px;
+    color: var(--primary-color);
+    padding: 20px;
+    background: var(--bg-light);
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+/* ==========================================
+   ATTEMPTS SECTION
+   ========================================== */
+
+.attempts-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.attempts-section h3 {
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.attempts-display {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#attemptsLeft {
+    color: var(--danger-color);
+    font-size: 1.8rem;
+}
+
+#totalAttempts {
+    color: var(--text-light);
+}
+
+/* ==========================================
+   GUESSED LETTERS SECTION
+   ========================================== */
+
+.guessed-section {
+    margin-bottom: 25px;
+}
+
+.guessed-section h3 {
+    margin-bottom: 12px;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.guessed-letters {
+    padding: 12px 15px;
+    background: var(--bg-light);
+    border-radius: 8px;
+    min-height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.guessed-letters .letter {
+    background: var(--secondary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+.guessed-letters .letter.incorrect {
+    background: var(--danger-color);
+}
+
+/* ==========================================
+   ALPHABET BUTTONS SECTION
+   ========================================== */
+
+.alphabet-section {
+    margin-bottom: 25px;
+}
+
+.alphabet-section h3 {
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.alphabet-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+    gap: 8px;
+}
+
+.letter-btn {
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    background: white;
+    color: var(--primary-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.letter-btn:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.letter-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.letter-btn:disabled {
+    background: var(--bg-light);
+    border-color: var(--border-color);
+    color: var(--text-light);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.letter-btn.correct {
+    background: var(--success-color);
+    border-color: var(--success-color);
+    color: white;
+}
+
+.letter-btn.incorrect {
+    background: var(--danger-color);
+    border-color: var(--danger-color);
+    color: white;
+}
+
+/* ==========================================
+   MESSAGE SECTION
+   ========================================== */
+
+.message-section {
+    margin-bottom: 20px;
+    min-height: 30px;
+}
+
+.game-message {
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: none;
+    animation: slideIn 0.4s ease-out;
+}
+
+.game-message.show {
+    display: block;
+}
+
+.game-message.success {
+    background: #D1F2EB;
+    color: var(--success-color);
+    border-left: 4px solid var(--success-color);
+}
+
+.game-message.error {
+    background: #FED7D7;
+    color: var(--danger-color);
+    border-left: 4px solid var(--danger-color);
+}
+
+.game-message.info {
+    background: #DBEAFE;
+    color: #1E40AF;
+    border-left: 4px solid #1E40AF;
+}
+
+/* ==========================================
+   BUTTON SECTION
+   ========================================== */
+
+.button-section {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5A52CC;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #00BFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================
+   DIFFICULTY SECTION
+   ========================================== */
+
+.difficulty-section {
+    padding-top: 20px;
+    border-top: 2px solid var(--border-color);
+    text-align: center;
+}
+
+.difficulty-section h4 {
+    margin-bottom: 12px;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.difficulty-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.difficulty-btn {
+    padding: 8px 16px;
+    border: 2px solid var(--border-color);
+    background: white;
+    color: var(--text-dark);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.difficulty-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.difficulty-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   ANIMATIONS
+   ========================================== */
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .game-container {
+        padding: 20px;
+    }
+
+    .word-display {
+        font-size: 1.5rem;
+        letter-spacing: 6px;
+    }
+
+    .alphabet-buttons {
+        grid-template-columns: repeat(auto-fit, minmax(32px, 1fr));
+        gap: 6px;
+    }
+
+    .letter-btn {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    .score-section {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .button-section {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .difficulty-buttons {
+        flex-direction: column;
+    }
+
+    .difficulty-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .word-display {
+        font-size: 1.2rem;
+        letter-spacing: 4px;
+    }
+
+    .hangman-drawing {
+        font-size: 1rem;
+    }
+}
